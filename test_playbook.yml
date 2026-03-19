@@ -1,0 +1,16 @@
+---
+- name: Set report URL as artifact
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Expose report URL as artifact
+      ansible.builtin.set_stats:
+        data:
+          report_url: "{{ report_url }}"
+        aggregate: false
+
+    - name: Print
+      ansible.builtin.debug:
+        var: report_url
