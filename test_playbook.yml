@@ -5,12 +5,16 @@
   gather_facts: false
 
   tasks:
+    - name: Set exposed_report_url
+      ansible.builtin.set_fact:
+        exposed_report_url: "{{ report_url }}"
+        
     - name: Expose report URL as artifact
       ansible.builtin.set_stats:
         data:
-          report_url: "{{ report_url }}"
+          exposed_report_url: "{{ exposed_report_url }}"
         aggregate: false
 
     - name: Print
       ansible.builtin.debug:
-        var: report_url
+        var: exposed_report_url
