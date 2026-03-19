@@ -113,6 +113,9 @@ spec:
         content: |
           **Job ID:** ${{ steps['launch-job'].output.data.id }}
           **Status:** ${{ steps['launch-job'].output.data.status }}
+
+          [📊 Open Report](${{ steps['print-url'].output.data.artifacts.exposed_report_url }})
+
     links:
       - title: 📊 Open Report
         url: ${{ steps['print-url'].output.data.artifacts.exposed_report_url }}
